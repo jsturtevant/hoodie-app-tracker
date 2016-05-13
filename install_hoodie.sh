@@ -1,3 +1,5 @@
+#!/bin/bash
+
 docker run -d --name my-couchdb \
     -v /data/couchdb:/usr/local/var/lib/couchdb \
     klaemo/couchdb:1.6.1

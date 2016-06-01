@@ -225,7 +225,7 @@
           "fileUris": [
             "https://raw.githubusercontent.com/jsturtevant/hoodie-app-tracker/master/install_hoodie.sh"
           ],
-          "commandToExecute": "sh install_hoodie.sh"
+          "commandToExecute": "bash install_hoodie.sh"
         }
       }
     }

@@ -4,12 +4,12 @@ docker run -d --name my-couchdb \
     klaemo/couchdb:1.6.1
 # create a admin user with the password `secret`
 # of course you can use you own username/password
-docker run -it --rm \
+docker run --rm \
     --link my-couchdb:couchdb \
     yxdhde/alpine-curl-git curl -X PUT \
     couchdb:5984/_config/admins/admin -d '"secret"'
 # login with the admin user
-docker run -it --rm \
+docker run --rm \
     --link my-couchdb:couchdb \
     yxdhde/alpine-curl-git curl -X POST \
     -H 'Content-Type: application/x-www-form-urlencoded' \

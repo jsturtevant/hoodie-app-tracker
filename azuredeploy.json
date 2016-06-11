@@ -225,7 +225,7 @@
           "fileUris": [
             "https://raw.githubusercontent.com/jsturtevant/hoodie-app-tracker/master/install_hoodie.sh"
           ],
-          "commandToExecute": "[concat('sh install_hoodie.sh ', variables('adminPassword'))]"
+          "commandToExecute": "[concat('sh install_hoodie.sh ', parameters('adminPassword'))]"
         }
       }
     }

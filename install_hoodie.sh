@@ -7,16 +7,16 @@ docker run -d --name my-couchdb \
 docker run --rm \
     --link my-couchdb:couchdb \
     yxdhde/alpine-curl-git curl -X PUT \
-    couchdb:5984/_config/admins/admin -d '"secret"'
+    couchdb:5984/_config/admins/admin -d '"$1"'
 # login with the admin user
 docker run --rm \
     --link my-couchdb:couchdb \
     yxdhde/alpine-curl-git curl -X POST \
     -H 'Content-Type: application/x-www-form-urlencoded' \
-    couchdb:5984/_session -d 'name=admin&password=secret'
+    couchdb:5984/_session -d 'name=admin&password=$1'
 
 docker run -d -p 8080:8080 \
     --name my-app \
     --link my-couchdb:couchdb \
-    -e hoodie_dbUrl=http://admin:secret@couchdb:5984/ \
+    -e hoodie_dbUrl=http://admin:$1@couchdb:5984/ \
     hoodiehq/hoodie-app-tracker
